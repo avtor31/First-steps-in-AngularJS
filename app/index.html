@@ -19,11 +19,7 @@
 </head>
 <body>
 <div ng-controller="phoneController">
-  <p>Количество элементов: <span ng-bind="phones.length"></span></p>
-  <p>Первый элемент: <span ng-bind="phones[0].name"></span></p>
-  <br/>
-  <h3>Change a text</h3>
-  <input type="text" ng-model="phones[0].name"/>
+  <ng-include src="'partial/phonesList.html'"></ng-include>
 </div>
 </body>
 </html>
