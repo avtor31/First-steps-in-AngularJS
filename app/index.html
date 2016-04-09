@@ -18,26 +18,14 @@
   <script src="js/services.js"></script>
 </head>
 <body>
-  <div ng-controller="parentController">
-    <h2>Inheritance in controllers</h2>
-    <hr/><br/>
-    <div ng-controller="firstChildController">
-      <h3>First child controller<br/></h3>
-      <h3>model from own controller: firstChildController</h3>
-      <h4>{{model.name}} : {{model.value}}</h4>
-    </div>
-    <hr/>
-    <div ng-controller="parentController">
-      <h3>Parent controller<br/></h3>
-      <h3>model from own controller: parentController</h3>
-      <h4>{{model.name}} : {{model.value}}</h4>
-    </div>
-    <hr/>
-    <div ng-controller="secondChildController">
-      <h3>Second child controller<br/></h3>
-      <h3>model from parent controller: parentController</h3>
-      <h4>{{model.name}} : {{model.value}}</h4>
-    </div>
-  </div>
+<div ng-controller="phoneController">
+  <ul>
+    <li ng-repeat="phone in phones">
+      <b>{{phone.name}}</b>
+      <p>Цена: {{phone.price}} $</p>
+      <p>Производитель: {{phone.company.name}}</p>
+    </li>
+  </ul>
+</div>
 </body>
 </html>
