@@ -19,13 +19,11 @@
 </head>
 <body>
 <div ng-controller="phoneController">
-  <ul>
-    <li ng-repeat="phone in phones">
-      <b>{{phone.name}}</b>
-      <p>Цена: {{phone.price}} $</p>
-      <p>Производитель: {{phone.company.name}}</p>
-    </li>
-  </ul>
+  <p>Количество элементов: <span ng-bind="phones.length"></span></p>
+  <p>Первый элемент: <span ng-bind="phones[0].name"></span></p>
+  <br/>
+  <h3>Change a text</h3>
+  <input type="text" ng-model="phones[0].name"/>
 </div>
 </body>
 </html>
