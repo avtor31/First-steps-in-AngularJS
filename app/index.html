@@ -19,7 +19,14 @@
 </head>
 <body>
 <div ng-controller="phoneController">
-  <ng-include src="'partial/phonesList.html'"></ng-include>
+  <div ng-repeat="button in modes">
+    <label>
+      <input type="radio" ng-model="data.mode" value="{{button.value}}" name="radio-modes" />
+      {{button.label}}
+    </label>
+  </div>
+  <!--Expression setFile() to evaluate when a new partial is loaded-->
+  <div ng-include="setFile()"></div>
 </div>
 </body>
 </html>
