@@ -1,1 +1,1 @@
-http://metanit.com/web/angular/2.9.php
+Look at ng-switch as f(model)
