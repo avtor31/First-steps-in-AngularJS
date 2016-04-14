@@ -1,1 +1,1 @@
-Look at ng-switch as f(model)
+Event handling
