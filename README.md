@@ -14,3 +14,4 @@ See also:
     https://docs.angularjs.org/api/ng/directive/select
     http://metanit.com/web/angular/2.3.php event handling in angular
     http://metanit.com/web/angular/2.4.php filters in angular
+    http://www.w3schools.com/angular/angular_select.asp
