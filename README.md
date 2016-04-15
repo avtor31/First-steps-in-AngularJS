@@ -9,3 +9,8 @@ In the controller we can receive 'answer'
     1 as a function`s argument -  (stringAnswer) in authorClickHandler
         or
     2 as scope variable   - ($scope.answer)
+
+See also:
+    https://docs.angularjs.org/api/ng/directive/select
+    http://metanit.com/web/angular/2.3.php event handling in angular
+    http://metanit.com/web/angular/2.4.php filters in angular
