@@ -24,6 +24,8 @@ myApp.controller('QuestionController', function($scope) {
             }]
     };
 
+    $scope.sortparam = '-rate';
+
     $scope.voteUp = function (answer){
         answer.rate++;
     };
