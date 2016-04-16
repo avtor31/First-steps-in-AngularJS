@@ -1,33 +1,48 @@
 var myApp=angular.module('myApp', []);
-myApp.controller('QuestionController', function($scope) {
+var myController1 = myApp.controller("myController", function($scope) {
 
-    $scope.question={
-        text: 'Which framework is better to use?',
-        author: 'Ivan Ivanov',
-        date: '20/10/2013',
-        answers:
-            [{
-                text: 'AngularJS!',
-                author: 'Vova Sidorov',
-                date: '23/10/2013',
-                rate:2
-            },{
-                text: 'AngularJS is the best',
-                author: 'Oleg Kuznetsov',
-                date: '20/10/2013',
-                rate:0
-            },{
-                text: 'I prefer a knockout',
-                author: 'noname',
-                date: '21/10/2013',
-                rate:0
-            }]
-    };
+    $scope.data = { time : new Date() };
 
-    $scope.authorClickHandler = function(stringAnswer) {
-        var answer = JSON.parse(stringAnswer);
-        console.log('Clicked: ' + JSON.parse($scope.answer).author + "; date: " + answer.date);
+    $scope.updateTime = function() {
+        $scope.data.time = new Date();
     }
+    $scope.watchedData = {value: 10};
 
+    $scope.$watch(
+        function(){
+            return $scope.watchedData.value;
+        },
+        function(newVal, oldVal){
+            console.log("$scope.watchedData oldVal: " + oldVal);
+            document.getElementById('oldScreen').value = oldVal;
+            console.log("$scope.watchedData newVal: " + newVal);
+            document.getElementById('newScreen').value = newVal;
+        }
+    );
 
+    document.getElementById("updateTimeButton")
+        .addEventListener('click', function() {
+            console.log("update time clicked");
+            $scope.data.time = new Date();
+        });
+    document.getElementById("updateTimeButtonWithWatch")
+        .addEventListener('click', function() {
+            $scope.watchedData.value += $scope.watchedData.value;
+            console.log("It was clicked update time - watch button and it change $scope.watchedData value to: "
+                + $scope.watchedData.value);
+            $scope.$digest();
+        });
+    document.getElementById("updateTimeButtonWithDigest")
+        .addEventListener('click', function() {
+            console.log("update time clicked");
+            $scope.data.time = new Date();
+            $scope.$digest();
+        });
+    document.getElementById("updateTimeButtonWithApply")
+        .addEventListener('click', function() {
+            $scope.$apply(function() {
+                console.log("update time clicked");
+                $scope.data.time = new Date();
+            });
+        });
 });
