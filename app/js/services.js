@@ -1,5 +1,31 @@
 'use strict';
 
+myApp.value('myValue', {view:"tiranozavrus", type:"rex"});
+myApp.constant('PI', 3.14);
+myApp.constant('myMath', {'PI': 3.14});
+myApp.service('myService', function() {
+    this.doIt = function(a) {
+        console.log('call to service function doIt: ', a);
+    }
+})
+
+myApp.provider("mySecondService", function() {
+    var provider = {};
+
+    provider.$get = function() {
+        var service = {};
+        service.doService = function() {
+            console.log("mySecondService: Service Done!");
+        }
+        return service;
+    }
+    return provider;
+});
+
+myApp.factory('myFactory', function() {
+    return 'myFactory called';
+})
+
 myApp.factory('dataService', function(){
     return{
         question:{
@@ -25,5 +51,8 @@ myApp.factory('dataService', function(){
                 }]
         }
     };
-})
+}
+
+
+)
 
