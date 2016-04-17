@@ -1,7 +1,7 @@
 var myApp=angular.module('myApp', []);
-myApp.controller('QuestionController', function($scope, dataService, myValue, myMath, PI, myService, mySecondService) {
+myApp.controller('QuestionController', function($scope, dataFactory, myValue, myMath, PI, myService, myProvider) {
 
-    mySecondService.doService();
+    myProvider.doService();
 
     console.log("myMath.PI ", myMath.PI);
     myMath.PI = 5;
@@ -11,7 +11,7 @@ myApp.controller('QuestionController', function($scope, dataService, myValue, my
     var yourService = {};
     myService.doIt.bind(yourService, "I am yourService and function doIt(..) was called.")();
 
-    $scope.question = dataService.question;
+    $scope.question = dataFactory.question;
 
     $scope.voteUp = function (answer){
         answer.rate++;
